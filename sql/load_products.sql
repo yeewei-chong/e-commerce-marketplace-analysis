@@ -13,7 +13,7 @@ WITH product_data_join AS (
     INNER JOIN 'data/olist_orders_dataset.csv' AS order_data ON item_data.order_id = order_data.order_id
     INNER JOIN 'data/olist_products_dataset.csv' AS product_data ON item_data.product_id = product_data.product_id
     INNER JOIN 'data/product_category_name_translation.csv' AS translation on translation.product_category_name = product_data.product_category_name
-    WHERE order_purchase_timestamp >= '2016-10-01 00:00:00' AND order_purchase_timestamp < '2018-10-01 00:00:00'
+    WHERE order_data.order_purchase_timestamp >= '2016-10-01 00:00:00' AND order_data.order_purchase_timestamp < '2018-10-01 00:00:00'
     GROUP BY 
         product_data.product_id,
         translation.product_category_name_english, 

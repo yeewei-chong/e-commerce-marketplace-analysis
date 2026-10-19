@@ -13,7 +13,7 @@ WITH seller_data_join AS (
     INNER JOIN 'data/olist_orders_dataset.csv' AS order_data ON item_data.order_id = order_data.order_id
     INNER JOIN 'data/olist_sellers_dataset.csv' AS seller_data ON item_data.seller_id = seller_data.seller_id
     INNER JOIN 'data/olist_geolocation_dataset.csv' AS geo_data on seller_data.seller_zip_code_prefix = geo_data.geolocation_zip_code_prefix
-    WHERE order_purchase_timestamp >= '2016-10-01 00:00:00' AND order_purchase_timestamp < '2018-10-01 00:00:00'
+    WHERE order_data.order_purchase_timestamp >= '2016-10-01 00:00:00' AND order_data.order_purchase_timestamp < '2018-10-01 00:00:00'
     GROUP BY 
         seller_data.seller_id,
         geo_data.geolocation_lat, 
